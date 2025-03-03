@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"> 
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -316,9 +316,8 @@
                 </div>
                 
                 <div class="footer">
-                    <div id="empresa-2">BIOBIN S.A.</div>
-                    <div id="direccion-2">Santiago Mattiazi 1798, Junín, Buenos Aires</div>
-                    <div>porteria.biobin@gmail.com</div>
+                    <div id="empresa-2"></div>
+                    <div id="direccion-2">Parque Comirsa, Ramallo, Buenos Aires</div>
                 </div>
             </div>
         </div>
@@ -334,72 +333,8 @@
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     };
 
-    // Función para formatear fecha y hora en un solo campo (DD/MM/YYYY HH:MM)
-    function formatearFechaHora(fechaString, horaString) {
-        var fecha = formatearFecha(fechaString);
-        var hora = formatearHora(horaString);
-        
-        if (fecha && hora) {
-            return fecha + " " + hora;
-        } else if (fecha) {
-            return fecha;
-        } else if (hora) {
-            return hora;
-        } else {
-            return "";
-        }
-    }
-
-    // Función para extraer la fecha como DD/MM/YYYY de cualquier string de fecha
-    function formatearFecha(fechaString) {
-        if (!fechaString) return '';
-        
-        try {
-            // Intentar crear un objeto fecha
-            const fecha = new Date(fechaString);
-            
-            // Verificar si la fecha es válida
-            if (isNaN(fecha.getTime())) {
-                // Si no es válida, intentar extraer la fecha mediante regex
-                const match = fechaString.match(/(\d{1,2})\s+(\w+)\s+(\d{4})/);
-                if (match) {
-                    const dia = match[1].padStart(2, '0');
-                    let mes;
-                    switch (match[2].toLowerCase()) {
-                        case 'jan': case 'enero': case 'ene': mes = '01'; break;
-                        case 'feb': case 'febrero': mes = '02'; break;
-                        case 'mar': case 'marzo': mes = '03'; break;
-                        case 'apr': case 'abril': case 'abr': mes = '04'; break;
-                        case 'may': case 'mayo': mes = '05'; break;
-                        case 'jun': case 'junio': mes = '06'; break;
-                        case 'jul': case 'julio': mes = '07'; break;
-                        case 'aug': case 'agosto': case 'ago': mes = '08'; break;
-                        case 'sep': case 'septiembre': mes = '09'; break;
-                        case 'oct': case 'octubre': mes = '10'; break;
-                        case 'nov': case 'noviembre': mes = '11'; break;
-                        case 'dec': case 'diciembre': case 'dic': mes = '12'; break;
-                        default: mes = '01';
-                    }
-                    const anio = match[3];
-                    return `${dia}/${mes}/${anio}`;
-                }
-                return fechaString;
-            }
-            
-            // Formatear la fecha como DD/MM/YYYY
-            const dia = fecha.getDate().toString().padStart(2, '0');
-            const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
-            const anio = fecha.getFullYear();
-            
-            return `${dia}/${mes}/${anio}`;
-        } catch (e) {
-            console.log("Error al formatear fecha:", e);
-            return fechaString;
-        }
-    }
-
-    // Función para extraer solo la hora (HH:MM) de cualquier string de fecha
-    function formatearHora(fechaHoraString) {
+    // Función para formatear fechahora (si es necesario)
+    function formatearFechaHora(fechaHoraString) {
         if (!fechaHoraString) return '';
         
         try {
@@ -408,31 +343,27 @@
             
             // Verificar si la fecha es válida
             if (isNaN(fecha.getTime())) {
-                // Si no es válida, intentar extraer la hora mediante regex
-                const match = fechaHoraString.match(/(\d{1,2}):(\d{1,2})/);
-                if (match) {
-                    const horas = match[1].padStart(2, '0');
-                    const minutos = match[2].padStart(2, '0');
-                    return `${horas}:${minutos}`;
-                }
                 return fechaHoraString;
             }
             
-            // Formatear solo la hora como HH:MM
+            // Formatear la fecha como DD/MM/YYYY HH:MM
+            const dia = fecha.getDate().toString().padStart(2, '0');
+            const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+            const anio = fecha.getFullYear();
             const horas = fecha.getHours().toString().padStart(2, '0');
             const minutos = fecha.getMinutes().toString().padStart(2, '0');
             
-            return `${horas}:${minutos}`;
+            return `${dia}/${mes}/${anio} ${horas}:${minutos}`;
         } catch (e) {
-            console.log("Error al formatear hora:", e);
+            console.log("Error al formatear fechahora:", e);
             return fechaHoraString;
         }
     }
 
     // Obtener los valores de los parámetros
     var numero = getUrlParameter('numero');
-    var fechahora_ingreso = formatearFechaHora(getUrlParameter('fecha'), getUrlParameter('fecha-ingreso'));
-    var fechahora_egreso = formatearFechaHora(getUrlParameter('fecha'), getUrlParameter('fecha-egreso'));
+    var fechahora_ingreso = formatearFechaHora(getUrlParameter('fechahora-ingreso'));
+    var fechahora_egreso = formatearFechaHora(getUrlParameter('fechahora-egreso'));
     var tara = getUrlParameter('tara') + " kg";
     var bruto = getUrlParameter('bruto') + " kg";
     
