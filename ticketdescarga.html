@@ -1,449 +1,462 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticket Balanza</title>
-    <script>
-    window.onload = function() {
-      window.print();
-    };
-    </script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: black;
-            background-color: white;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Balanza</title>
+    <script>
+    window.onload = function() {
+      window.print();
+    };
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: black;
+            background-color: white;
+            font-size: 11.5pt; /* Tamaño de fuente base reducido */
+            line-height: 1.1; /* Altura de línea reducida para compactar verticalmente */
+        }
 
-        .page {
-            width: 210mm;
-            margin: 0 auto;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        .page {
+            width: 210mm;
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        .ticket-container {
-            display: flex;
-            flex-direction: column;
-        }
+        .ticket-container {
+            display: flex;
+            flex-direction: column;
+        }
 
-        .ticket {
-            border: 2px solid #333;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 0;
-            box-sizing: border-box;
-            width: 100%;
-        }
+        .ticket {
+            border: 2px solid #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 0;
+            box-sizing: border-box;
+            width: 100%;
+        }
 
-        .dotted-line {
-            border-top: 1px dashed #000;
-            height: 1px;
-            margin: 10px 0;
-            position: relative;
-        }
+        .dotted-line {
+            border-top: 1px dashed #000;
+            height: 1px;
+            margin: 10px 0;
+            position: relative;
+        }
 
-        .dotted-line::after {
-            content: "✂";
-            position: absolute;
-            right: 10px;
-            top: -10px;
-            font-size: 16px;
-        }
+        .dotted-line::after {
+            content: "✂";
+            position: absolute;
+            right: 10px;
+            top: -10px;
+            font-size: 16px;
+        }
 
-        .ticket-header {
-            text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-        }
+        .ticket-header {
+            text-align: center;
+            margin-bottom: 15px; /* Reducido */
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 8px; /* Reducido */
+        }
 
-        .ticket-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0;
-        }
+        .ticket-title {
+            font-size: 22px; /* Reducido */
+            font-weight: bold;
+            margin: 0;
+        }
 
-        .ticket-number {
-            font-size: 18px;
-            margin: 5px 0;
-        }
+        .ticket-number {
+            font-size: 16px; /* Reducido */
+            margin: 5px 0;
+        }
 
-        .data-section, .weight-section, .transport-section {
-            margin-bottom: 15px;
-        }
+        .data-section, .weight-section, .transport-section {
+            margin-bottom: 12px; /* Reducido */
+        }
 
-        .data-row {
-            display: flex;
-            margin-bottom: 5px;
-        }
+        .data-row {
+            display: flex;
+            margin-bottom: 4px; /* Reducido */
+        }
 
-        .data-label {
-            font-weight: bold;
-            width: 180px;
-            text-align: left;
-            padding-right: 10px;
-        }
+        .data-label {
+            font-weight: bold;
+            width: 180px;
+            text-align: left;
+            padding-right: 10px;
+        }
 
-        .data-value {
-            flex-grow: 1;
-        }
+        .data-value {
+            flex-grow: 1;
+        }
 
-        .weight-section {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
+        .weight-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
 
-        .weight-column {
-            width: 48%;
-        }
+        .weight-column {
+            width: 48%;
+        }
 
-        .weight-title {
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
+        .weight-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
 
-        .weight-data {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
+        .weight-data {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
 
-        .net-weight {
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            background-color: #f0f0f0;
-            padding: 7px;
-            border-radius: 5px;
-            margin: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+        .net-weight {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #f0f0f0;
+            padding: 7px;
+            border-radius: 5px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-        .transport-section {
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-        }
+        .transport-section {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
 
-        .footer {
-            text-align: center;
-            font-size: 14px;
-            margin-top: 20px;
-            padding-top: 10px;
-            border-top: 1px solid #ccc;
-        }
+        .transport-section .data-label {
+            white-space: nowrap; /* Evita que "DOMINIO CHASIS" y "DOMINIO ACOPLADO" se envuelvan */
+        }
 
-        @media print {
-            .dotted-line {
-                page-break-after: avoid;
-            }
-            
-            body {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
 
-            .page {
-        heigth: 290mm; /* Ligeramente más pequeño que A4 */
-    }
-    .ticket-header {
-        margin-bottom: 15px;
-        padding-bottom: 8px;
-    }
-    .data-section, .weight-section, .transport-section {
-        margin-bottom: 12px;
-    }
-    .data-row {
-        margin-bottom: 4px;
-    }
-    body {
-        font-size: 11.5pt; /* Ligera reducción de la fuente */
-    }
-        }
-    </style>
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 15px; /* Reducido */
+            padding-top: 8px; /* Reducido */
+            border-top: 1px solid #ccc;
+        }
+
+        @media print {
+            .dotted-line {
+                page-break-after: avoid;
+            }
+
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                height: 280mm; /* Altura de página reducida para impresión */
+                width: 205mm; /* Ancho de página reducido para impresión */
+                margin: 0 auto; /* Asegura centrado en vista previa */
+            }
+
+            .ticket {
+                padding: 15px; /* Reducido padding del ticket en impresión */
+            }
+
+
+        }
+    </style>
 </head>
 <body>
-    <div class="page">
-        <div class="ticket-container">
-            <!-- Primera copia del ticket -->
-            <div class="ticket">
-                <div class="ticket-header">
-                    <h1 class="ticket-title">TICKET BALANZA</h1>
-                    <div class="ticket-number">N° <span id="numero-1"></span></div>
-                </div>
-                
-                <div class="weight-section">
-                    <div class="weight-column">
-                        <div class="weight-title">INGRESO</div>
-                        <div class="weight-data">
-                            <span class="data-label">Fecha/Hora:</span>
-                            <span id="fechahora-ingreso-1" class="data-value"></span>
-                        </div>
-                        <div class="weight-data">
-                            <span class="data-label">BRUTO:</span>
-                            <span id="bruto-1" class="data-value"></span>
-                        </div>
-                    </div>
-                    
-                    <div class="weight-column">
-                        <div class="weight-title">EGRESO</div>
-                        <div class="weight-data">
-                            <span class="data-label">Fecha/Hora:</span>
-                            <span id="fechahora-egreso-1" class="data-value"></span>
-                        </div>
-                        <div class="weight-data">
-                            
-                            <span class="data-label">TARA:</span>
-                            <span id="tara-1" class="data-value"></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="net-weight">
-                    PESO NETO: <span id="neto-1"></span>
-                </div>
-                
-                <div class="data-section">
-                    <div class="data-row">
-                        <span class="data-label">PRODUCTO:</span>
-                        <span id="producto-1" class="data-value"></span>
-                    </div>
-                </div>
-                
-                <div class="data-section">
-                    <div class="data-row">
-                        <span class="data-label">PROVEEDOR:</span>
-                        <span id="proveedor-1" class="data-value"></span>
-                    </div>
-                </div>
-                
-                <div class="transport-section">
-                    <div class="data-row">
-                        <span class="data-label">TRANSPORTE:</span>
-                        <span id="transporte-1" class="data-value"></span>
-                    </div>
-                    <div class="data-row">
-                        <span class="data-label">CHOFER:</span>
-                        <span id="chofer-1" class="data-value"></span>
-                    </div>
-                    <div class="data-row">
-                        <span class="data-label">DNI:</span>
-                        <span id="dni-chofer-1" class="data-value"></span>
-                    </div>
-                    <div class="data-row">
-                        <span class="data-label">DOMINIO CHASIS:</span>
-                        <span id="chasis-1" class="data-value"></span>
-                    </div>
-                    <div class="data-row">
-                        <span class="data-label">DOMINIO ACOPLADO:</span>
-                        <span id="acoplado-1" class="data-value"></span>
-                    </div>
-                    
-                </div>
-                
-                <div class="footer">
-                    <div>BIOBIN S.A.</div>
-                    <div>Santiago Matiazzi 1798, Junin, Buenos Aires</div>
-                    <div>biobinporteria@gmail.com</div>
-                    
-                </div>
-            </div>
-            
-            <!-- Línea troquelada -->
-            <div class="dotted-line"></div>
-            
-            <!-- Segunda copia del ticket -->
-            <div class="ticket">
-                <div class="ticket-header">
-                    <h1 class="ticket-title">TICKET BALANZA</h1>
-                    <div class="ticket-number">N° <span id="numero-2"></span></div>
-                </div>
-                
-                <div class="weight-section">
-                    <div class="weight-column">
-                        <div class="weight-title">INGRESO</div>
-                        <div class="weight-data">
-                            <span class="data-label">Fecha/Hora:</span>
-                            <span id="fechahora-ingreso-2" class="data-value"></span>
-                        </div>
-                        
-                        <div class="weight-data">
-                            <span class="data-label">BRUTO:</span>
-                            <span id="bruto-2" class="data-value"></span>
-                        </div>
-                    </div>
-                    
-                    <div class="weight-column">
-                        <div class="weight-title">EGRESO</div>
-                        <div class="weight-data">
-                            <span class="data-label">Fecha/Hora:</span>
-                            <span id="fechahora-egreso-2" class="data-value"></span>
-                        </div>
-                        <div class="weight-data">
-                            <span class="data-label">TARA:</span>
-                            <span id="tara-2" class="data-value"></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="net-weight">
-                    PESO NETO: <span id="neto-2"></span>
-                </div>
-                
-                <div class="data-section">
-                    <div class="data-row">
-                        <span class="data-label">PRODUCTO:</span>
-                        <span id="producto-2" class="data-value"></span>
-                    </div>
-                </div>
-                
-                <div class="data-section">
-                    <div class="data-row">
-                        <span class="data-label">PROVEEDOR:</span>
-                        <span id="proveedor-2" class="data-value"></span>
-                    </div>
-                </div>
-                
-                <div class="transport-section">
-                    <div class="data-row">
-                        <span class="data-label">TRANSPORTE:</span>
-                        <span id="transporte-2" class="data-value"></span>
-                    </div>
-                    <div class="data-row">
-                        <span class="data-label">CHOFER:</span>
-                        <span id="chofer-2" class="data-value"></span>
-                    </div>
-                    <div class="data-row">
-                        <span class="data-label">DNI:</span>
-                        <span id="dni-chofer-2" class="data-value"></span>
-                    </div>
-                   <div class="data-row">
-                        <span class="data-label">DOMINIO CHASIS:</span>
-                        <span id="chasis-2" class="data-value"></span>
-                    </div>
-                    <div class="data-row">
-                        <span class="data-label">DOMINIO ACOPLADO:</span>
-                        <span id="acoplado-2" class="data-value"></span>
-                    </div>
-                </div>
-                
-                <div class="footer">
-                    <div>BIOBIN S.A.</div>
-                    <div>Santiago Matiazzi 1798, Junin, Buenos Aires</div>
-                    <div>biobinporteria@gmail.com</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="page">
+        <div class="ticket-container">
+                        <div class="ticket">
+                <div class="ticket-header">
+                    <h1 class="ticket-title">TICKET BALANZA</h1>
+                    <div class="ticket-number">N° <span id="numero-1"></span></div>
+                </div>
+
+                <div class="weight-section">
+                    <div class="weight-column">
+                        <div class="weight-title">INGRESO</div>
+                        <div class="weight-data">
+                            <span class="data-label">Fecha/Hora:</span>
+                            <span id="fechahora-ingreso-1" class="data-value"></span>
+                        </div>
+                        <div class="weight-data">
+                            <span class="data-label">TARA:</span>
+                            <span id="tara-1" class="data-value"></span>
+                        </div>
+                    </div>
+
+                    <div class="weight-column">
+                        <div class="weight-title">EGRESO</div>
+                        <div class="weight-data">
+                            <span class="data-label">Fecha/Hora:</span>
+                            <span id="fechahora-egreso-1" class="data-value"></span>
+                        </div>
+                        <div class="weight-data">
+                            <span class="data-label">BRUTO:</span>
+                            <span id="bruto-1" class="data-value"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="net-weight">
+                    PESO NETO: <span id="neto-1"></span>
+                </div>
+
+                <div class="data-section">
+                    <div class="data-row">
+                        <span class="data-label">PRODUCTO:</span>
+                        <span id="producto-1" class="data-value"></span>
+                    </div>
+                </div>
+
+                <div class="data-section">
+                    <div class="data-row">
+                        <span class="data-label">PROVEEDOR:</span>
+                        <span id="proveedor-1" class="data-value"></span>
+                    </div>
+                </div>
+
+                <div class="transport-section">
+                    <div class="data-row">
+                        <span class="data-label">TRANSPORTE:</span>
+                        <span id="transporte-1" class="data-value"></span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">CHOFER:</span>
+                        <span id="chofer-1" class="data-value"></span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">DNI:</span>
+                        <span id="dni-chofer-1" class="data-value"></span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">DOMINIO CHASIS:</span>
+                        <span id="chasis-1" class="data-value"></span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">DOMINIO ACOPLADO:</span>
+                        <span id="acoplado-1" class="data-value"></span>
+                    </div>
+
+                </div>
+
+                <div class="footer">
+                    <div id="empresa-1"></div>
+                    <div id="direccion-1">Santiago Matiazzi 1798, Junin, Buenos Aires</div>
+                    <div id="email-1">biobinporteria@gmail.com</div>
+
+                </div>
+            </div>
+
+                        <div class="dotted-line"></div>
+
+                        <div class="ticket">
+                <div class="ticket-header">
+                    <h1 class="ticket-title">TICKET BALANZA</h1>
+                    <div class="ticket-number">N° <span id="numero-2"></span></div>
+                </div>
+
+                <div class="weight-section">
+                    <div class="weight-column">
+                        <div class="weight-title">INGRESO</div>
+                        <div class="weight-data">
+                            <span class="data-label">Fecha/Hora:</span>
+                            <span id="fechahora-ingreso-2" class="data-value"></span>
+                        </div>
+
+                        <div class="weight-data">
+                            <span class="data-label">TARA:</span>
+                            <span id="tara-2" class="data-value"></span>
+                        </div>
+                    </div>
+
+                    <div class="weight-column">
+                        <div class="weight-title">EGRESO</div>
+                        <div class="weight-data">
+                            <span class="data-label">Fecha/Hora:</span>
+                            <span id="fechahora-egreso-2" class="data-value"></span>
+                        </div>
+                        <div class="weight-data">
+                            <span class="data-label">BRUTO:</span>
+                            <span id="bruto-2" class="data-value"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="net-weight">
+                    PESO NETO: <span id="neto-2"></span>
+                </div>
+
+                <div class="data-section">
+                    <div class="data-row">
+                        <span class="data-label">PRODUCTO:</span>
+                        <span id="producto-2" class="data-value"></span>
+                    </div>
+                </div>
+
+                <div class="data-section">
+                    <div class="data-row">
+                        <span class="data-label">PROVEEDOR:</span>
+                        <span id="proveedor-2" class="data-value"></span>
+                    </div>
+                </div>
+
+                <div class="transport-section">
+                    <div class="data-row">
+                        <span class="data-label">TRANSPORTE:</span>
+                        <span id="transporte-2" class="data-value"></span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">CHOFER:</span>
+                        <span id="chofer-2" class="data-value"></span>
+                    </div>
+                    <div class="data-row">
+                        <span class="data-label">DNI:</span>
+                        <span id="dni-chofer-2" class="data-value"></span>
+                    </div>
+                   <div class="data-row">
+                        <span class="data-label">DOMINIO CHASIS:</span>
+                        <span id="chasis-2" class="data-value"></span>
+                    </div>
+                    <div class="data-row">
+       Baronacoplado:</span>
+                        <span id="acoplado-2" class="data-value"></span>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <div id="empresa-2"></div>
+                    <div id="direccion-2">Santiago Matiazzi 1798, Junin, Buenos Aires</div>
+                    <div id="email-2">biobinporteria@gmail.com</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-    <script>
-    // Función para obtener los parámetros de la URL
-    function getUrlParameter(name) {
-        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        var results = regex.exec(location.search);
-        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    };
+    <script>
+    // Función para obtener los parámetros de la URL
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
 
-    // Función para formatear fechahora (si es necesario)
-    function formatearFechaHora(fechaHoraString) {
-        if (!fechaHoraString) return '';
-        
-        try {
-            // Intentar crear un objeto fecha
-            const fecha = new Date(fechaHoraString);
-            
-            // Verificar si la fecha es válida
-            if (isNaN(fecha.getTime())) {
-                return fechaHoraString;
-            }
-            
-            // Formatear la fecha como DD/MM/YYYY HH:MM
-            const dia = fecha.getDate().toString().padStart(2, '0');
-            const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
-            const anio = fecha.getFullYear();
-            const horas = fecha.getHours().toString().padStart(2, '0');
-            const minutos = fecha.getMinutes().toString().padStart(2, '0');
-            
-            return `${dia}/${mes}/${anio} ${horas}:${minutos}`;
-        } catch (e) {
-            console.log("Error al formatear fechahora:", e);
-            return fechaHoraString;
-        }
-    }
+    // Función para formatear fechahora (si es necesario)
+    function formatearFechaHora(fechaHoraString) {
+        if (!fechaHoraString) return '';
 
-    // Obtener los valores de los parámetros
-    var numero = getUrlParameter('numero');
-    var fechahora_ingreso = formatearFechaHora(getUrlParameter('fechahora-ingreso'));
-    var fechahora_egreso = formatearFechaHora(getUrlParameter('fechahora-egreso'));
-    var tara = getUrlParameter('tara') + " kg";
-    var bruto = getUrlParameter('bruto') + " kg";
-    
-    // Calcular el neto a partir de tara y bruto si neto no está disponible
-    var taraVal = parseFloat(getUrlParameter('tara')) || 0;
-    var brutoVal = parseFloat(getUrlParameter('bruto')) || 0;
-    var netoParam = getUrlParameter('neto');
-    var neto;
-    
-    if (netoParam && netoParam !== "") {
-        neto = netoParam + " kg";
-    } else if (taraVal > 0 && brutoVal > 0) {
-        neto = (brutoVal - taraVal) + " kg";
-    } else {
-        neto = "0 kg";
-    }
-    
-    var chofer = getUrlParameter('chofer');
-    var dni_chofer = getUrlParameter('dni-chofer');
-    var proveedor = getUrlParameter('proveedor');
-    var chasis = getUrlParameter('chasis');
-    var acoplado = getUrlParameter('acoplado');
-    var producto = getUrlParameter('producto');
-    var transporte = getUrlParameter('transporte');
-    
+        try {
+            // Intentar crear un objeto fecha
+            const fecha = new Date(fechaHoraString);
 
-    // Aplicar los valores a la primera copia
-    document.getElementById("numero-1").innerHTML = numero;
-    document.getElementById("fechahora-ingreso-1").innerHTML = fechahora_ingreso;
-    document.getElementById("fechahora-egreso-1").innerHTML = fechahora_egreso;
-    document.getElementById("tara-1").innerHTML = tara;
-    document.getElementById("bruto-1").innerHTML = bruto;
-    document.getElementById("neto-1").innerHTML = neto;
-    document.getElementById("chofer-1").innerHTML = chofer;
-    document.getElementById("dni-chofer-1").innerHTML = dni_chofer;
-    document.getElementById("proveedor-1").innerHTML = proveedor;
-    document.getElementById("chasis-1").innerHTML = chasis;
-    document.getElementById("acoplado-1").innerHTML = acoplado;
-    document.getElementById("producto-1").innerHTML = producto;
-    document.getElementById("transporte-1").innerHTML = transporte;
-    
+            // Verificar si la fecha es válida
+            if (isNaN(fecha.getTime())) {
+                return fechaHoraString;
+            }
 
-    // Aplicar los valores a la segunda copia
-    document.getElementById("numero-2").innerHTML = numero;
-    document.getElementById("fechahora-ingreso-2").innerHTML = fechahora_ingreso;
-    document.getElementById("fechahora-egreso-2").innerHTML = fechahora_egreso;
-    document.getElementById("tara-2").innerHTML = tara;
-    document.getElementById("bruto-2").innerHTML = bruto;
-    document.getElementById("neto-2").innerHTML = neto;
-    document.getElementById("chofer-2").innerHTML = chofer;
-    document.getElementById("dni-chofer-2").innerHTML = dni_chofer;
-    document.getElementById("proveedor-2").innerHTML = proveedor;
-    document.getElementById("chasis-2").innerHTML = chasis;
-    document.getElementById("acoplado-2").innerHTML = acoplado;
-    document.getElementById("producto-2").innerHTML = producto;
-    document.getElementById("transporte-2").innerHTML = transporte;
-    
-    </script>
+            // Formatear la fecha como DD/MM/YYYY HH:MM
+            const dia = fecha.getDate().toString().padStart(2, '0');
+            const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+            const anio = fecha.getFullYear();
+            const horas = fecha.getHours().toString().padStart(2, '0');
+            const minutos = fecha.getMinutes().toString().padStart(2, '0');
+
+            return `${dia}/${mes}/${anio} ${horas}:${minutos}`;
+        } catch (e) {
+            console.log("Error al formatear fechahora:", e);
+            return fechaHoraString;
+        }
+    }
+
+    // Función para formatear números con separador de miles
+    function formatNumberWithThousands(number) {
+        return new Intl.NumberFormat('es-AR').format(number);
+    }
+
+
+    // Obtener los valores de los parámetros
+    var numero = getUrlParameter('numero');
+    var fechahora_ingreso = formatearFechaHora(getUrlParameter('fechahora-ingreso'));
+    var fechahora_egreso = formatearFechaHora(getUrlParameter('fechahora-egreso'));
+    var tara = getUrlParameter('tara');
+    var bruto = getUrlParameter('bruto');
+
+    // Calcular el neto a partir de tara y bruto si neto no está disponible
+    var taraVal = parseFloat(tara) || 0;
+    var brutoVal = parseFloat(bruto) || 0;
+    var netoParam = getUrlParameter('neto');
+    var neto;
+
+    if (netoParam && netoParam !== "") {
+        neto = netoParam;
+    } else if (taraVal > 0 && brutoVal > 0) {
+        neto = (brutoVal - taraVal).toFixed(2); // Asegura 2 decimales en el cálculo
+      } else {
+        neto = "0";
+    }
+
+    var chofer = getUrlParameter('chofer');
+    var dni_chofer = getUrlParameter('dni-chofer');
+    var proveedor = getUrlParameter('proveedor');
+    var chasis = getUrlParameter('chasis');
+    var acoplado = getUrlParameter('acoplado');
+    var producto = getUrlParameter('producto');
+    var transporte = getUrlParameter('transporte');
+    var empresa = getUrlParameter('empresa');
+    var email = getUrlParameter('email');
+
+
+    // Aplicar los valores a la primera copia
+    document.getElementById("numero-1").innerHTML = numero;
+    document.getElementById("fechahora-ingreso-1").innerHTML = fechahora_ingreso;
+    document.getElementById("fechahora-egreso-1").innerHTML = fechahora_egreso;
+    document.getElementById("tara-1").innerHTML = formatNumberWithThousands(tara) + " kg"; // Formateado con separador de miles
+    document.getElementById("bruto-1").innerHTML = formatNumberWithThousands(bruto) + " kg"; // Formateado con separador de miles
+    document.getElementById("neto-1").innerHTML = formatNumberWithThousands(neto) + " kg";   // Formateado con separador de miles
+    document.getElementById("chofer-1").innerHTML = chofer;
+    document.getElementById("dni-chofer-1").innerHTML = dni_chofer;
+    document.getElementById("proveedor-1").innerHTML = proveedor;
+    document.getElementById("chasis-1").innerHTML = chasis;
+    document.getElementById("acoplado-1").innerHTML = acoplado;
+    document.getElementById("producto-1").innerHTML = producto;
+    document.getElementById("transporte-1").innerHTML = transporte;
+    document.getElementById("empresa-1").innerHTML = empresa;
+    document.getElementById("direccion-1").innerHTML =  getUrlParameter('direccion'); // permite parametrizar direccion
+    document.getElementById("email-1").innerHTML = email;
+
+
+    // Aplicar los valores a la segunda copia
+    document.getElementById("numero-2").innerHTML = numero;
+    document.getElementById("fechahora-ingreso-2").innerHTML = fechahora_ingreso;
+    document.getElementById("fechahora-egreso-2").innerHTML = fechahora_egreso;
+    document.getElementById("tara-2").innerHTML = formatNumberWithThousands(tara) + " kg"; // Formateado con separador de miles
+    document.getElementById("bruto-2").innerHTML = formatNumberWithThousands(bruto) + " kg"; // Formateado con separador de miles
+    document.getElementById("neto-2").innerHTML = formatNumberWithThousands(neto) + " kg";   // Formateado con separador de miles
+    document.getElementById("chofer-2").innerHTML = chofer;
+    document.getElementById("dni-chofer-2").innerHTML = dni_chofer;
+    document.getElementById("proveedor-2").innerHTML = proveedor;
+    document.getElementById("chasis-2").innerHTML = chasis;
+    document.getElementById("acoplado-2").innerHTML = acoplado;
+    document.getElementById("producto-2").innerHTML = producto;
+    document.getElementById("transporte-2").innerHTML = transporte;
+    document.getElementById("empresa-2").innerHTML = empresa;
+    document.getElementById("direccion-2").innerHTML =  getUrlParameter('direccion'); // permite parametrizar direccion
+    document.getElementById("email-2").innerHTML = email;
+
+    </script>
 </body>
 </html>
+
