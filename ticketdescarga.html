@@ -383,6 +383,13 @@
         }
     }
 
+    function formatearNumero(numero) {
+    if (isNaN(numero)) {
+        return numero; // Devuelve el valor original si no es un número válido
+    }
+    return numero.toLocaleString('es-AR'); // Formatea el número con separadores de miles para la región Argentina
+}
+
     // Obtener los valores de los parámetros
     var numero = getUrlParameter('numero');
     var fechahora_ingreso = formatearFechaHora(getUrlParameter('fechahora-ingreso'));
@@ -417,9 +424,10 @@
     document.getElementById("numero-1").innerHTML = numero;
     document.getElementById("fechahora-ingreso-1").innerHTML = fechahora_ingreso;
     document.getElementById("fechahora-egreso-1").innerHTML = fechahora_egreso;
-    document.getElementById("tara-1").innerHTML = tara;
-    document.getElementById("bruto-1").innerHTML = bruto;
-    document.getElementById("neto-1").innerHTML = neto;
+    document.getElementById("tara-1").innerHTML = formatearNumero(parseFloat(getUrlParameter('tara'))) + " kg";
+    document.getElementById("bruto-1").innerHTML = formatearNumero(parseFloat(getUrlParameter('bruto'))) + " kg";
+    document.getElementById("neto-1").innerHTML = formatearNumero(parseFloat(getUrlParameter('neto'))) + " kg";
+    document.getElementById("bruto-1").innerHTML = formatearNumero(parseFloat(getUrlParameter('bruto'))) + " kg";
     document.getElementById("chofer-1").innerHTML = chofer;
     document.getElementById("dni-chofer-1").innerHTML = dni_chofer;
     document.getElementById("proveedor-1").innerHTML = proveedor;
@@ -433,9 +441,9 @@
     document.getElementById("numero-2").innerHTML = numero;
     document.getElementById("fechahora-ingreso-2").innerHTML = fechahora_ingreso;
     document.getElementById("fechahora-egreso-2").innerHTML = fechahora_egreso;
-    document.getElementById("tara-2").innerHTML = tara;
-    document.getElementById("bruto-2").innerHTML = bruto;
-    document.getElementById("neto-2").innerHTML = neto;
+    document.getElementById("tara-2").innerHTML = formatearNumero(parseFloat(getUrlParameter('tara'))) + " kg";
+    document.getElementById("bruto-2").innerHTML = formatearNumero(parseFloat(getUrlParameter('bruto'))) + " kg";
+    document.getElementById("neto-2").innerHTML = formatearNumero(parseFloat(getUrlParameter('neto'))) + " kg";
     document.getElementById("chofer-2").innerHTML = chofer;
     document.getElementById("dni-chofer-2").innerHTML = dni_chofer;
     document.getElementById("proveedor-2").innerHTML = proveedor;
