@@ -89,11 +89,10 @@
       }
 
       document.getElementById('fechaCarga' + i).textContent = getUrlParameter('fechaCarga' + i) || '';
-      document.getElementById('productor' + i).textContent = getUrlParameter('productor' + i) || '';
       document.getElementById('producto' + i).textContent = getUrlParameter('producto' + i) || '';
-      document.getElementById('patenteCamion' + i).textContent = getUrlParameter('patenteCamion' + i) || '';
-      document.getElementById('nroRemito' + i).textContent = getUrlParameter('nroRemito' + i) || '';
-      document.getElementById('destino' + i).textContent = getUrlParameter('destino' + i) || '';
+      document.getElementById('patenteCamion' + i).textContent = getUrlParameter('chasis' + i) || '';
+      document.getElementById('nroRemito' + i).textContent = getUrlParameter('remito' + i) || '';
+      document.getElementById('destino' + i).textContent = getUrlParameter('cliente' + i) || '';
       document.getElementById('terminal' + i).textContent = getUrlParameter('terminal' + i) || '';
       document.getElementById('nroPrecinto' + i).textContent = getUrlParameter('nroPrecinto' + i) || '';
       document.getElementById('nroTapaMuestras' + i).textContent = getUrlParameter('nroTapaMuestras' + i) || '';
