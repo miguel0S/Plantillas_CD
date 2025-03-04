@@ -106,6 +106,8 @@
       <p>DESTINO: <span id="cliente1"></span></p>
       <p>TERMINAL: <span id="terminal1"></span></p>
       <p>N° PRECINTO: <span id="precinto1"></span></p>
+      <p>N° TAPA MUESTRA: <span id="tapam1"></span></p>
+      <p>N° TAPA CONTRAMUESTRA: <span id="tapacontram1"></span></p>
     </div>
 
     <div class="etiqueta" id="etiqueta2">
@@ -118,6 +120,8 @@
       <p>DESTINO: <span id="cliente2"></span></p>
       <p>TERMINAL: <span id="terminal2"></span></p>
       <p>N° PRECINTO: <span id="precinto2"></span></p>
+      <p>N° TAPA MUESTRA: <span id="tapam2"></span></p>
+      <p>N° TAPA CONTRAMUESTRA: <span id="tapacontram2"></span></p>
     </div>
   </div>
 
@@ -133,6 +137,8 @@
       <p>DESTINO: <span id="cliente3"></span></p>
       <p>TERMINAL: <span id="terminal3"></span></p>
       <p>N° PRECINTO: <span id="precinto3"></span></p>
+      <p>N° TAPA MUESTRA: <span id="tapam3"></span></p>
+      <p>N° TAPA CONTRAMUESTRA: <span id="tapacontram3"></span></p>
     </div>
   </div>
 </div>
@@ -164,6 +170,8 @@
       document.getElementById('cliente' + i).textContent = getUrlParameter('cliente') || '';
       document.getElementById('terminal' + i).textContent = getUrlParameter('terminal') || '';
       document.getElementById('precinto' + i).textContent = getUrlParameter('precinto') || '';
+      document.getElementById('tapam' + i).textContent = getUrlParameter('tapam') || '';
+      document.getElementById('tapacontram' + i).textContent = getUrlParameter('tapacontram') || '';
     }
   }
 
