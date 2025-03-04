@@ -165,7 +165,7 @@
             const horas = fecha.getHours().toString().padStart(2, '0');
             const minutos = fecha.getMinutes().toString().padStart(2, '0');
             
-            return `${dia}/${mes}/${anio} ${horas}:${minutos}`;
+            return `${dia}/${mes}/${anio}`;
         } catch (e) {
             console.log("Error al formatear fechahora:", e);
             return fechaHoraString;
