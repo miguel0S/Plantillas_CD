@@ -146,6 +146,32 @@
 </div>
 
 <script>
+  function formatearFechaHora(fechaHoraString) {
+        if (!fechaHoraString) return '';
+        
+        try {
+            // Intentar crear un objeto fecha
+            const fecha = new Date(fechaHoraString);
+            
+            // Verificar si la fecha es válida
+            if (isNaN(fecha.getTime())) {
+                return fechaHoraString;
+            }
+            
+            // Formatear la fecha como DD/MM/YYYY HH:MM
+            const dia = fecha.getDate().toString().padStart(2, '0');
+            const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+            const anio = fecha.getFullYear();
+            const horas = fecha.getHours().toString().padStart(2, '0');
+            const minutos = fecha.getMinutes().toString().padStart(2, '0');
+            
+            return `${dia}/${mes}/${anio} ${horas}:${minutos}`;
+        } catch (e) {
+            console.log("Error al formatear fechahora:", e);
+            return fechaHoraString;
+        }
+    }
+
   function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -162,9 +188,9 @@
         etiqueta.style.display = 'none'; // Ocultar etiquetas excedentes
         continue;
       }
-
+    var fechaSTD = formatearFechaHora(getUrlParameter('fecha'));
       // Usando los nombres correctos de los parámetros en la URL
-      document.getElementById('fecha' + i).textContent = getUrlParameter('fecha') || '';
+      document.getElementById('fecha' + i).textContent = fechaSTD || '';
       document.getElementById('producto' + i).textContent = getUrlParameter('producto') || '';
       document.getElementById('chasis' + i).textContent = getUrlParameter('chasis') || '';
       document.getElementById('remito' + i).textContent = getUrlParameter('remito') || '';
