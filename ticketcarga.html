@@ -190,8 +190,8 @@
                             <span id="fechahora-ingreso-1" class="data-value"></span>
                         </div>
                         <div class="weight-data">
-                            <span class="data-label">BRUTO:</span>
-                            <span id="bruto-1" class="data-value"></span>
+                            <span class="data-label">TARA:</span>
+                            <span id="tara-1" class="data-value"></span>
                         </div>
                     </div>
                     
@@ -203,8 +203,8 @@
                         </div>
                         <div class="weight-data">
                             
-                            <span class="data-label">TARA:</span>
-                            <span id="tara-1" class="data-value"></span>
+                            <span class="data-label">BRUTO:</span>
+                            <span id="bruto-1" class="data-value"></span>
                         </div>
                     </div>
                 </div>
@@ -222,8 +222,8 @@
                 
                 <div class="data-section">
                     <div class="data-row">
-                        <span class="data-label">PROVEEDOR:</span>
-                        <span id="proveedor-1" class="data-value"></span>
+                        <span class="data-label">CLIENTE:</span>
+                        <span id="cliente-1" class="data-value"></span>
                     </div>
                 </div>
                 
@@ -278,8 +278,8 @@
                         </div>
                         
                         <div class="weight-data">
-                            <span class="data-label">BRUTO:</span>
-                            <span id="bruto-2" class="data-value"></span>
+                            <span class="data-label">TARA:</span>
+                            <span id="tara-2" class="data-value"></span>
                         </div>
                     </div>
                     
@@ -290,8 +290,8 @@
                             <span id="fechahora-egreso-2" class="data-value"></span>
                         </div>
                         <div class="weight-data">
-                            <span class="data-label">TARA:</span>
-                            <span id="tara-2" class="data-value"></span>
+                            <span class="data-label">BRUTO:</span>
+                            <span id="bruto-2" class="data-value"></span>
                         </div>
                     </div>
                 </div>
@@ -309,8 +309,8 @@
                 
                 <div class="data-section">
                     <div class="data-row">
-                        <span class="data-label">PROVEEDOR:</span>
-                        <span id="proveedor-2" class="data-value"></span>
+                        <span class="data-label">CLIENTE:</span>
+                        <span id="cliente-2" class="data-value"></span>
                     </div>
                 </div>
                 
@@ -421,7 +421,7 @@
     
     var chofer = getUrlParameter('chofer');
     var dni_chofer = getUrlParameter('dni-chofer');
-    var proveedor = getUrlParameter('proveedor');
+    var CLIENTE = getUrlParameter('CLIENTE');
     var chasis = getUrlParameter('chasis');
     var acoplado = getUrlParameter('acoplado');
     var producto = getUrlParameter('producto');
@@ -437,7 +437,7 @@
     document.getElementById("neto-1").innerHTML = neto;
     document.getElementById("chofer-1").innerHTML = chofer;
     document.getElementById("dni-chofer-1").innerHTML = formatearNumero(parseFloat(getUrlParameter('dni-chofer')));
-    document.getElementById("proveedor-1").innerHTML = proveedor;
+    document.getElementById("cliente-1").innerHTML = CLIENTE;
     document.getElementById("chasis-1").innerHTML = chasis;
     document.getElementById("acoplado-1").innerHTML = acoplado;
     document.getElementById("producto-1").innerHTML = producto;
@@ -453,7 +453,7 @@
     document.getElementById("neto-2").innerHTML = neto;
     document.getElementById("chofer-2").innerHTML = chofer;
     document.getElementById("dni-chofer-2").innerHTML = formatearNumero(parseFloat(getUrlParameter('dni-chofer')));
-    document.getElementById("proveedor-2").innerHTML = proveedor;
+    document.getElementById("cliente-2").innerHTML = CLIENTE;
     document.getElementById("chasis-2").innerHTML = chasis;
     document.getElementById("acoplado-2").innerHTML = acoplado;
     document.getElementById("producto-2").innerHTML = producto;
