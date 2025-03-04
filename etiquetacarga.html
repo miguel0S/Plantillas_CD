@@ -4,43 +4,49 @@
 <title>Etiquetas</title>
 <style>
   body {
-    width: 210mm; /* Ancho de A4 */
-    height: 297mm; /* Alto de A4 */
+    width: 210mm; /* Tamaño A4 */
+    height: 297mm;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .pagina {
     width: 100%;
+    padding: 10mm;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 10mm;
+    align-items: flex-start;
   }
 
   .fila {
     display: flex;
-    justify-content: center;
     width: 100%;
-    margin-bottom: 10mm;
+    margin-bottom: 5mm; /* Espaciado entre filas */
   }
 
   .etiqueta {
     width: 100mm;
     height: 70mm;
     border: 1px solid black;
-    padding: 5mm;
+    padding: 4mm;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-    font-size: 12px;
+    font-size: 10px; /* Reducido para que el texto no se desborde */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .etiqueta p {
+    margin: 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .fila .etiqueta {
@@ -51,10 +57,14 @@
     margin-right: 0;
   }
 
-  .fila-centrada {
+  /* La etiqueta 3 va debajo de la primera */
+  .fila-debajo {
     display: flex;
-    justify-content: center;
     width: 100%;
+  }
+
+  .fila-debajo .etiqueta {
+    margin-top: -5mm; /* Ajusta la posición */
   }
 
   @media print {
@@ -76,44 +86,48 @@
 </head>
 <body>
 
-<div id="etiquetas">
-  <div class="etiqueta" id="etiqueta1">
-    <p>FECHA DE CARGA: <span id="fechaCarga1"></span></p>
-    <p>PRODUCTOR: <span id="productor1"></span></p>
-    <p>PRODUCTO: <span id="producto1"></span></p>
-    <p>PATENTE CAMIÓN: <span id="patenteCamion1"></span></p>
-    <p>N° REMITO: <span id="nroRemito1"></span></p>
-    <p>DESTINO: <span id="destino1"></span></p>
-    <p>TERMINAL: <span id="terminal1"></span></p>
-    <p>N° PRECINTO: <span id="nroPrecinto1"></span></p>
-    <p>N° TAPA (MUESTRAS): <span id="nroTapaMuestras1"></span></p>
-    <p>N° TAPA (CONTRAM.): <span id="nroTapaContram1"></span></p>
+<div class="pagina">
+  <div class="fila">
+    <div class="etiqueta" id="etiqueta1">
+      <p>FECHA DE CARGA: <span id="fechaCarga1"></span></p>
+      <p>PRODUCTOR: <span id="productor1"></span></p>
+      <p>PRODUCTO: <span id="producto1"></span></p>
+      <p>PATENTE CAMIÓN: <span id="patenteCamion1"></span></p>
+      <p>N° REMITO: <span id="nroRemito1"></span></p>
+      <p>DESTINO: <span id="destino1"></span></p>
+      <p>TERMINAL: <span id="terminal1"></span></p>
+      <p>N° PRECINTO: <span id="nroPrecinto1"></span></p>
+      <p>N° TAPA (MUESTRAS): <span id="nroTapaMuestras1"></span></p>
+      <p>N° TAPA (CONTRAM.): <span id="nroTapaContram1"></span></p>
+    </div>
+
+    <div class="etiqueta" id="etiqueta2">
+      <p>FECHA DE CARGA: <span id="fechaCarga2"></span></p>
+      <p>PRODUCTOR: <span id="productor2"></span></p>
+      <p>PRODUCTO: <span id="producto2"></span></p>
+      <p>PATENTE CAMIÓN: <span id="patenteCamion2"></span></p>
+      <p>N° REMITO: <span id="nroRemito2"></span></p>
+      <p>DESTINO: <span id="destino2"></span></p>
+      <p>TERMINAL: <span id="terminal2"></span></p>
+      <p>N° PRECINTO: <span id="nroPrecinto2"></span></p>
+      <p>N° TAPA (MUESTRAS): <span id="nroTapaMuestras2"></span></p>
+      <p>N° TAPA (CONTRAM.): <span id="nroTapaContram2"></span></p>
+    </div>
   </div>
 
-  <div class="etiqueta" id="etiqueta2">
-    <p>FECHA DE CARGA: <span id="fechaCarga2"></span></p>
-    <p>PRODUCTOR: <span id="productor2"></span></p>
-    <p>PRODUCTO: <span id="producto2"></span></p>
-    <p>PATENTE CAMIÓN: <span id="patenteCamion2"></span></p>
-    <p>N° REMITO: <span id="nroRemito2"></span></p>
-    <p>DESTINO: <span id="destino2"></span></p>
-    <p>TERMINAL: <span id="terminal2"></span></p>
-    <p>N° PRECINTO: <span id="nroPrecinto2"></span></p>
-    <p>N° TAPA (MUESTRAS): <span id="nroTapaMuestras2"></span></p>
-    <p>N° TAPA (CONTRAM.): <span id="nroTapaContram2"></span></p>
-  </div>
-
-  <div class="etiqueta" id="etiqueta3">
-    <p>FECHA DE CARGA: <span id="fechaCarga3"></span></p>
-    <p>PRODUCTOR: <span id="productor3"></span></p>
-    <p>PRODUCTO: <span id="producto3"></span></p>
-    <p>PATENTE CAMIÓN: <span id="patenteCamion3"></span></p>
-    <p>N° REMITO: <span id="nroRemito3"></span></p>
-    <p>DESTINO: <span id="destino3"></span></p>
-    <p>TERMINAL: <span id="terminal3"></span></p>
-    <p>N° PRECINTO: <span id="nroPrecinto3"></span></p>
-    <p>N° TAPA (MUESTRAS): <span id="nroTapaMuestras3"></span></p>
-    <p>N° TAPA (CONTRAM.): <span id="nroTapaContram3"></span></p>
+  <div class="fila">
+    <div class="etiqueta etiqueta-izquierda" id="etiqueta3">
+      <p>FECHA DE CARGA: <span id="fechaCarga3"></span></p>
+      <p>PRODUCTOR: <span id="productor3"></span></p>
+      <p>PRODUCTO: <span id="producto3"></span></p>
+      <p>PATENTE CAMIÓN: <span id="patenteCamion3"></span></p>
+      <p>N° REMITO: <span id="nroRemito3"></span></p>
+      <p>DESTINO: <span id="destino3"></span></p>
+      <p>TERMINAL: <span id="terminal3"></span></p>
+      <p>N° PRECINTO: <span id="nroPrecinto3"></span></p>
+      <p>N° TAPA (MUESTRAS): <span id="nroTapaMuestras3"></span></p>
+      <p>N° TAPA (CONTRAM.): <span id="nroTapaContram3"></span></p>
+    </div>
   </div>
 </div>
 
@@ -126,7 +140,8 @@
   }
 
   function asignarValores() {
-    var cantidad = parseInt(getUrlParameter('cantidad')) || 1; // Obtener cantidad o usar 1 por defecto
+    var cantidad = parseInt(getUrlParameter('cantidad')) || 3
+    ; // Obtener cantidad o usar 1 por defecto
 
     for (var i = 1; i <= 3; i++) {
       var etiqueta = document.getElementById('etiqueta' + i);
