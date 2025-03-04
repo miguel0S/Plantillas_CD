@@ -12,11 +12,13 @@
     display: inline-block;
     margin-right: 5px;
     margin-bottom: 5px;
-    font-family: 'Arial', sans-serif; /* Cambiar la fuente */
+    font-family: 'Arial', sans-serif;
     font-size: 12px;
-    display: flex; /* Usar flexbox para la distribución vertical */
-    flex-direction: column; /* Organizar los elementos en columna */
-    justify-content: space-around; /* Distribuir el espacio verticalmente */
+    vertical-align: top; /* Alinea las etiquetas en la parte superior */
+  }
+
+  #etiquetas {
+    white-space: nowrap; /* Evita el salto de línea entre etiquetas */
   }
 
   .etiqueta p {
