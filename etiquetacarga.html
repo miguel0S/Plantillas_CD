@@ -4,74 +4,80 @@
 <title>Etiquetas</title>
 <style>
   body {
-    width: 210mm; /* Tamaño A4 */
-    height: 297mm;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
   }
 
   .pagina {
-    width: 100%;
-    padding: 10mm;
+    width: 210mm; /* Tamaño A4 */
+    height: 297mm;
+    padding: 5mm;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .fila {
     display: flex;
     width: 100%;
-    margin-bottom: 5mm; /* Espaciado entre filas */
+    justify-content: space-between;
+    margin-bottom: 10mm; /* Espaciado entre filas */
   }
 
   .etiqueta {
     width: 100mm;
     height: 70mm;
     border: 1px solid black;
-    padding: 4mm;
+    padding: 8mm;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-    font-size: 10px; /* Reducido para que el texto no se desborde */
+    font-size: 12px; /* Aumentado para mejorar la legibilidad */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
+    border-radius: 5px; /* Bordes redondeados */
   }
 
   .etiqueta p {
     margin: 2px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.4;
+  }
+
+  .etiqueta span {
+    font-weight: bold;
+  }
+
+  .etiqueta .title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4mm;
+    text-align: center;
   }
 
   .fila .etiqueta {
-    margin-right: 10mm;
+    margin-right: 8mm;
   }
 
   .fila .etiqueta:last-child {
     margin-right: 0;
   }
 
-  /* La etiqueta 3 va debajo de la primera */
   .fila-debajo {
     display: flex;
     width: 100%;
+    justify-content: flex-start;
   }
 
   .fila-debajo .etiqueta {
-    margin-top: -5mm; /* Ajusta la posición */
+    margin-top: 0;
   }
 
   @media print {
     body {
       margin: 0;
       padding: 0;
-      -webkit-print-color-adjust: exact;
     }
 
     .pagina {
@@ -80,6 +86,7 @@
 
     .etiqueta {
       border: 1px solid black;
+      box-shadow: none; /* Eliminar sombra al imprimir */
     }
   }
 </style>
@@ -90,6 +97,7 @@
   <!-- Primera fila: dos etiquetas alineadas -->
   <div class="fila">
     <div class="etiqueta" id="etiqueta1">
+      <p class="title">BIOBIN S.A.</p>
       <p>FECHA DE CARGA: <span id="fecha1"></span></p>
       <p>PRODUCTOR: <span id="transporte1"></span></p>
       <p>PRODUCTO: <span id="producto1"></span></p>
@@ -101,6 +109,7 @@
     </div>
 
     <div class="etiqueta" id="etiqueta2">
+      <p class="title">BIOBIN S.A.</p>
       <p>FECHA DE CARGA: <span id="fecha2"></span></p>
       <p>PRODUCTOR: <span id="transporte2"></span></p>
       <p>PRODUCTO: <span id="producto2"></span></p>
@@ -115,6 +124,7 @@
   <!-- Segunda fila: una etiqueta debajo de la primera -->
   <div class="fila-debajo">
     <div class="etiqueta" id="etiqueta3">
+      <p class="title">BIOBIN S.A.</p>
       <p>FECHA DE CARGA: <span id="fecha3"></span></p>
       <p>PRODUCTOR: <span id="transporte3"></span></p>
       <p>PRODUCTO: <span id="producto3"></span></p>
