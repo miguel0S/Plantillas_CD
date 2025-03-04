@@ -87,46 +87,42 @@
 <body>
 
 <div class="pagina">
+  <!-- Primera fila: dos etiquetas alineadas -->
   <div class="fila">
     <div class="etiqueta" id="etiqueta1">
-      <p>FECHA DE CARGA: <span id="fechaCarga1"></span></p>
-      <p>PRODUCTOR: <span id="productor1"></span></p>
+      <p>FECHA DE CARGA: <span id="fecha1"></span></p>
+      <p>PRODUCTOR: <span id="transporte1"></span></p>
       <p>PRODUCTO: <span id="producto1"></span></p>
-      <p>PATENTE CAMIÓN: <span id="patenteCamion1"></span></p>
-      <p>N° REMITO: <span id="nroRemito1"></span></p>
-      <p>DESTINO: <span id="destino1"></span></p>
+      <p>PATENTE CAMIÓN: <span id="chasis1"></span></p>
+      <p>N° REMITO: <span id="remito1"></span></p>
+      <p>DESTINO: <span id="cliente1"></span></p>
       <p>TERMINAL: <span id="terminal1"></span></p>
-      <p>N° PRECINTO: <span id="nroPrecinto1"></span></p>
-      <p>N° TAPA (MUESTRAS): <span id="nroTapaMuestras1"></span></p>
-      <p>N° TAPA (CONTRAM.): <span id="nroTapaContram1"></span></p>
+      <p>N° PRECINTO: <span id="precinto1"></span></p>
     </div>
 
     <div class="etiqueta" id="etiqueta2">
-      <p>FECHA DE CARGA: <span id="fechaCarga2"></span></p>
-      <p>PRODUCTOR: <span id="productor2"></span></p>
+      <p>FECHA DE CARGA: <span id="fecha2"></span></p>
+      <p>PRODUCTOR: <span id="transporte2"></span></p>
       <p>PRODUCTO: <span id="producto2"></span></p>
-      <p>PATENTE CAMIÓN: <span id="patenteCamion2"></span></p>
-      <p>N° REMITO: <span id="nroRemito2"></span></p>
-      <p>DESTINO: <span id="destino2"></span></p>
+      <p>PATENTE CAMIÓN: <span id="chasis2"></span></p>
+      <p>N° REMITO: <span id="remito2"></span></p>
+      <p>DESTINO: <span id="cliente2"></span></p>
       <p>TERMINAL: <span id="terminal2"></span></p>
-      <p>N° PRECINTO: <span id="nroPrecinto2"></span></p>
-      <p>N° TAPA (MUESTRAS): <span id="nroTapaMuestras2"></span></p>
-      <p>N° TAPA (CONTRAM.): <span id="nroTapaContram2"></span></p>
+      <p>N° PRECINTO: <span id="precinto2"></span></p>
     </div>
   </div>
 
-  <div class="fila">
-    <div class="etiqueta etiqueta-izquierda" id="etiqueta3">
-      <p>FECHA DE CARGA: <span id="fechaCarga3"></span></p>
-      <p>PRODUCTOR: <span id="productor3"></span></p>
+  <!-- Segunda fila: una etiqueta debajo de la primera -->
+  <div class="fila-debajo">
+    <div class="etiqueta" id="etiqueta3">
+      <p>FECHA DE CARGA: <span id="fecha3"></span></p>
+      <p>PRODUCTOR: <span id="transporte3"></span></p>
       <p>PRODUCTO: <span id="producto3"></span></p>
-      <p>PATENTE CAMIÓN: <span id="patenteCamion3"></span></p>
-      <p>N° REMITO: <span id="nroRemito3"></span></p>
-      <p>DESTINO: <span id="destino3"></span></p>
+      <p>PATENTE CAMIÓN: <span id="chasis3"></span></p>
+      <p>N° REMITO: <span id="remito3"></span></p>
+      <p>DESTINO: <span id="cliente3"></span></p>
       <p>TERMINAL: <span id="terminal3"></span></p>
-      <p>N° PRECINTO: <span id="nroPrecinto3"></span></p>
-      <p>N° TAPA (MUESTRAS): <span id="nroTapaMuestras3"></span></p>
-      <p>N° TAPA (CONTRAM.): <span id="nroTapaContram3"></span></p>
+      <p>N° PRECINTO: <span id="precinto3"></span></p>
     </div>
   </div>
 </div>
@@ -140,8 +136,7 @@
   }
 
   function asignarValores() {
-    var cantidad = parseInt(getUrlParameter('cantidad')) || 1
-    ; // Obtener cantidad o usar 1 por defecto
+    var cantidad = parseInt(getUrlParameter('cantidad')) || 1; // Obtener cantidad o usar 1 por defecto
 
     for (var i = 1; i <= 3; i++) {
       var etiqueta = document.getElementById('etiqueta' + i);
@@ -150,15 +145,15 @@
         continue;
       }
 
-      document.getElementById('fechaCarga' + i).textContent = getUrlParameter('fechaCarga' + i) || '';
-      document.getElementById('producto' + i).textContent = getUrlParameter('producto' + i) || '';
-      document.getElementById('patenteCamion' + i).textContent = getUrlParameter('chasis' + i) || '';
-      document.getElementById('nroRemito' + i).textContent = getUrlParameter('remito' + i) || '';
-      document.getElementById('destino' + i).textContent = getUrlParameter('cliente' + i) || '';
-      document.getElementById('terminal' + i).textContent = getUrlParameter('terminal' + i) || '';
-      document.getElementById('nroPrecinto' + i).textContent = getUrlParameter('precinto' + i) || '';
-      document.getElementById('nroTapaMuestras' + i).textContent = getUrlParameter('tapam' + i) || '';
-      document.getElementById('nroTapaContram' + i).textContent = getUrlParameter('tapacontram' + i) || '';
+      // Usando los nombres correctos de los parámetros en la URL
+      document.getElementById('fecha' + i).textContent = getUrlParameter('fecha') || '';
+      document.getElementById('transporte' + i).textContent = getUrlParameter('transporte') || '';
+      document.getElementById('producto' + i).textContent = getUrlParameter('producto') || '';
+      document.getElementById('chasis' + i).textContent = getUrlParameter('chasis') || '';
+      document.getElementById('remito' + i).textContent = getUrlParameter('remito') || '';
+      document.getElementById('cliente' + i).textContent = getUrlParameter('cliente') || '';
+      document.getElementById('terminal' + i).textContent = getUrlParameter('terminal') || '';
+      document.getElementById('precinto' + i).textContent = getUrlParameter('precinto') || '';
     }
   }
 
