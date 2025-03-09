@@ -1699,49 +1699,34 @@
     }
     return numero.toLocaleString('es-AR'); // Formatea el número con separadores de miles para la región Argentina
     }
+    var tk_balanza = getUrlParameter('numero')
+    var Remito = getUrlParameter('Remito')
+    var Fecha = getUrlParameter('Fecha')
+    var Destino = getUrlParameter('Destino')
+    var Direccion = getUrlParameter('Direccion')
+    var CUIT_destino = getUrlParameter('CUIT-destino')
+    var Terminal = getUrlParameter('Terminal')
+    var transporte = getUrlParameter('transporte')
+    var transporte_cuit = getUrlParameter('transporte_cuit')
+    var chofer = getUrlParameter('chofer')
+    var dni_chofer = getUrlParameter('dni-chofer')
+    var chasis = getUrlParameter('chasis')
+    var acoplado = getUrlParameter('acoplado')
+    var observaciones_1 = getUrlParameter('observaciones_1')
+    var observaciones_2 = getUrlParameter('observaciones_2')
+    var producto = getUrlParameter('producto')
+    var lote = getUrlParameter('lote')
+    var tara = getUrlParameter('tara')
+    var bruto = getUrlParameter('bruto')
+    var Neto = getUrlParameter('Neto')
+    var Precintos = getUrlParameter('Precintos')
+    var op_balanza = getUrlParameter('op-balanza')
+    var Nro_contramuestra = getUrlParameter('Nro_contramuestra')
+    var Nro_precinto_muestra = getUrlParameter('Nro_precinto_muestra')
+    var Nro_muestra = getUrlParameter('Nro_muestra')
 
-    // Obtener los valores de los parámetros
-    var numero = getUrlParameter('numero');
-    var Fecha = formatearFechaHora(getUrlParameter('Fecha'));
-    var tara = getUrlParameter('tara') + " kg";
-    var bruto = getUrlParameter('bruto') + " kg";
-    
-    // Calcular el neto a partir de tara y bruto si neto no está disponible
-    var taraVal = parseFloat(getUrlParameter('tara')) || 0;
-    var brutoVal = parseFloat(getUrlParameter('bruto')) || 0;
-    var netoParam = getUrlParameter('neto');
-    var neto;
-
-    if (netoParam && !isNaN(parseFloat(netoParam))) {
-        neto = formatearNumero(parseFloat(netoParam)) + " kg";
-    } else if (!isNaN(taraVal) && !isNaN(brutoVal) && brutoVal >= taraVal) {
-        neto = formatearNumero(brutoVal - taraVal) + " kg";
-    } else {
-        neto = "0 kg";
-    }
-    
-    if (netoParam && netoParam !== "") {
-        neto = netoParam + " kg";
-    } else if (taraVal > 0 && brutoVal > 0) {
-        neto = (brutoVal - taraVal) + " kg";
-    } else {
-        neto = "0 kg";
-    }
-    
-    var chofer = getUrlParameter('chofer');
-    var dni_chofer = getUrlParameter('dni-chofer');
-    var cliente = getUrlParameter('cliente');
-    var chasis = getUrlParameter('chasis');
-    var acoplado = getUrlParameter('acoplado');
-    var producto = getUrlParameter('producto');
-    var transporte = getUrlParameter('transporte');
-    
-
-    // Aplicar los valores a la primera copia
-    document.getElementById("numero-1").innerHTML = numero;
-    document.getElementById("Fecha-1").innerHTML = Fecha;
-    
-    document.getElementById("tara-1").innerHTML = formatearNumero(parseFloat(getUrlParameter('tara'))) + " kg";
+        // Aplicar los valores a la primera copia
+        document.getElementById("tara-1").innerHTML = formatearNumero(parseFloat(getUrlParameter('tara'))) + " kg";
     document.getElementById("bruto-1").innerHTML = formatearNumero(parseFloat(getUrlParameter('bruto'))) + " kg";
     document.getElementById("neto-1").innerHTML = neto;
     document.getElementById("chofer-1").innerHTML = chofer;
@@ -1751,9 +1736,5 @@
     document.getElementById("dni-chofer-1").innerHTML = formatearNumero(parseFloat(getUrlParameter('dni-chofer')));
     document.getElementById("producto-1").innerHTML = producto;
     document.getElementById("transporte-1").innerHTML = transporte;
-    
-
-   
-    
     </script>
 </html>
