@@ -963,7 +963,7 @@
             </td>
             <td class="c16" colspan="4" rowspan="1">
                 <p class="c22 c33">
-                    <span class="c1">&lt;&lt;[Direccion]&gt;&gt;</span>
+                    <span class="c1"id="direccion"></span>
                 </p>
             </td>
             <td class="c8" colspan="1" rowspan="1">
@@ -986,7 +986,7 @@
             <td class="c16" colspan="4" rowspan="1">
                 <p class="c19">
                     <span class="c37">TERMINAL: &lt;&lt;[</span>
-                    <span class="c37" id="terminal">Terminal]</span>
+                    <span class="c37" id="terminal"></span>
                     <span class="c1">&gt;&gt;</span>
                 </p>
             </td>
@@ -1009,7 +1009,7 @@
             </td>
             <td class="c16" colspan="4" rowspan="1">
                 <p class="c19">
-                    <span class="c1" id="direccion">&lt;&lt;[Direccion terminal]&gt;&gt;</span>
+                    <span class="c1" id="dir_term"></span>
                 </p>
             </td>
             <td class="c8" colspan="1" rowspan="1">
@@ -1096,7 +1096,7 @@
             <td class="c11" colspan="1" rowspan="1">
                 <p class="c22">
                     <span class="c37">&lt;&lt;[</span>
-                    <span class="c37" id="transporte_cuit">CUIT transporte</span>
+                    <span class="c37" id="transporte_cuit"></span>
                     <span class="c1">]&gt;&gt;</span>
                 </p>
             </td>
@@ -1134,7 +1134,7 @@
             </td>
             <td class="c11" colspan="1" rowspan="1">
                 <p class="c22">
-                    <span class="c1">&lt;&lt;[nombre chofer]&gt;&gt;</span>
+                    <span class="c1"if="chofer"></span>
                 </p>
             </td>
             <td class="c7" colspan="1" rowspan="1">
@@ -1154,7 +1154,7 @@
             </td>
             <td class="c8" colspan="1" rowspan="1">
                 <p class="c22">
-                    <span class="c1">&lt;&lt;[DNI Chofer]&gt;&gt;</span>
+                    <span class="c1"id="dni-chofer"></span>
                 </p>
             </td>
             <td class="c6" colspan="1" rowspan="1">
@@ -1191,7 +1191,7 @@
             </td>
             <td class="c8" colspan="1" rowspan="1">
                 <p class="c22">
-                    <span class="c1">&lt;&lt;[patente chasis]&gt;&gt;</span>
+                    <span class="c1" id="chasis"></span>
                 </p>
             </td>
             <td class="c6" colspan="1" rowspan="1">
@@ -1708,7 +1708,8 @@
         document.getElementById("fecha").innerHTML = formatearFechaHora(getUrlParameter('Fecha'))
         document.getElementById("destino").innerHTML = getUrlParameter('Destino')
         document.getElementById("direccion").innerHTML = getUrlParameter('Direccion')
-        document.getElementById("cuit").innerHTML = getUrlParameter('CUIT-destino')
+        document.getElementById("dir_term").innerHTML = getUrlParameter('dir_term')
+        document.getElementById("cuit").innerHTML = getUrlParameter('CUIT_destino')
         document.getElementById("terminal").innerHTML = getUrlParameter('Terminal')
         document.getElementById("transporte").innerHTML = getUrlParameter('transporte')
         document.getElementById("transporte_cuit").innerHTML = getUrlParameter('transporte_cuit')
