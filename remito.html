@@ -985,6 +985,7 @@
             </td>
             <td class="c16" colspan="4" rowspan="1">
                 <p class="c19">
+                    <span class="c37">TERMINAL:</span>
                     <span class="c37" id="terminal"></span>
                     <span class="c1"></span>
                 </p>
@@ -1278,7 +1279,7 @@
             </td>
             <td class="c11" colspan="1" rowspan="1">
                 <p class="c22">
-                    <span class="c1">&lt;&lt;[Producto]&gt;&gt;</span>
+                    <span class="c1" id="producto"></span>
                 </p>
             </td>
             <td class="c7" colspan="1" rowspan="1">
@@ -1325,7 +1326,8 @@
             </td>
             <td class="c3" colspan="1" rowspan="1">
                 <p class="c20">
-                    <span class="c1">TARA &nbsp;: &lt;&lt;[Tara]&gt;&gt;</span>
+                    <span class="c1">TARA: </span>
+                    <span class="c1" id="tara"></span>
                 </p>
             </td>
             <td class="c15" colspan="1" rowspan="1">
@@ -1362,7 +1364,8 @@
             </td>
             <td class="c3" colspan="1" rowspan="1">
                 <p class="c20">
-                    <span class="c1">BRUTO: &lt;&lt;[Bruto]&gt;&gt;</span>
+                    <span class="c1">BRUTO: </span>
+                    <span class="c1" id="bruto"></span>
                 </p>
             </td>
             <td class="c15" colspan="1" rowspan="1">
@@ -1399,7 +1402,8 @@
             </td>
             <td class="c3" colspan="1" rowspan="1">
                 <p class="c20">
-                    <span class="c1">NETO &nbsp;: &lt;&lt;[Neto]&gt;&gt;</span>
+                    <span class="c1">NETO: </span>
+                    <span class="c1" id="neto"></span>
                 </p>
             </td>
             <td class="c15" colspan="1" rowspan="1">
@@ -1461,7 +1465,7 @@
                     <span class="c1"></span>
                 </p>
                 <p class="c0">
-                    <span class="c1">&lt;&lt;[Precintos]&gt;&gt;</span>
+                    <span class="c1" id="precintos"></span>
                 </p>
             </td>
             <td class="c30" colspan="1" rowspan="1">
@@ -1481,30 +1485,28 @@
             </td>
             <td class="c44" colspan="1" rowspan="1">
                 <p class="c4">
-                    <span class="c1">Operador de balanza:</span>
+                    <span class="c1" >Operador de balanza:</span>
                 </p>
                 <p class="c4">
-                    <span class="c37">&nbsp;&lt;&lt;[</span>
-                    <span class="c41">Operador de balanza</span>
-                    <span class="c1">]&gt;&gt;</span>
+                    <span class="c41" id="op_balanza"></span>
                 </p>
                 <p class="c4">
                     <span class="c1">Contramuestra N&ordm;:</span>
                 </p>
                 <p class="c4">
-                    <span class="c1">&nbsp;&lt;&lt;[Nro contramuestra]&gt;&gt;</span>
+                    <span class="c1" id="contramuestra"></span>
                 </p>
                 <p class="c4">
                     <span class="c1">Precintos muestras:</span>
                 </p>
                 <p class="c4">
-                    <span class="c1">&nbsp;&lt;&lt;[Nro precinto tapa]&gt;&gt;</span>
+                    <span class="c1" id="precintomuestra"></span>
                 </p>
                 <p class="c4">
                     <span class="c1">Muestra rotulada N&deg;: </span>
                 </p>
                 <p class="c4">
-                    <span class="c1">&lt;&lt;[Nro muestra]&gt;&gt;</span>
+                    <span class="c1" id="Nro_muestra"></span>
                 </p>
             </td>
             <td class="c58" colspan="1" rowspan="1">
@@ -1544,7 +1546,7 @@
                     <span class="c1">Lote:</span>
                 </p>
                 <p class="c20 c51">
-                    <span class="c1">&lt;&lt;[Lote]&gt;&gt;</span>
+                    <span class="c1" id="lote"></span>
                 </p>
             </td>
         </tr>
@@ -1635,7 +1637,7 @@
             </td>
             <td class="c3" colspan="1" rowspan="1">
                 <p class="c20">
-                    <span class="c1">&lt;&lt;[dni chofer]&gt;&gt;</span>
+                    <span class="c1" id="dni-chofer-2"></span>
                 </p>
             </td>
             <td class="c15" colspan="1" rowspan="1">
@@ -1645,7 +1647,7 @@
             </td>
             <td class="c8" colspan="1" rowspan="1">
                 <p class="c20">
-                    <span class="c1">&lt;&lt;[nombre chofer]&gt;&gt;</span>
+                    <span class="c1" id="chofer-2"></span>
                 </p>
             </td>
             <td class="c6" colspan="1" rowspan="1">
@@ -1713,41 +1715,24 @@
         document.getElementById("transporte").innerHTML = getUrlParameter('transporte')
         document.getElementById("transporte_cuit").innerHTML = getUrlParameter('transporte_cuit')
         document.getElementById('tk_balanza').innerHTML = getUrlParameter('numero')
-
-     
-        var chasis = getUrlParameter('chasis')
-        var acoplado = getUrlParameter('acoplado')
-        var observaciones_1 = getUrlParameter('observaciones_1')
-        var observaciones_2 = getUrlParameter('observaciones_2')
-        var producto = getUrlParameter('producto')
-        var lote = getUrlParameter('lote')
-        var tara = getUrlParameter('tara')
-        var bruto = getUrlParameter('bruto')
-        var Neto = getUrlParameter('Neto')
-        var Precintos = getUrlParameter('Precintos')
-        var op_balanza = getUrlParameter('op-balanza')
-        var Nro_contramuestra = getUrlParameter('Nro_contramuestra')
-        var Nro_precinto_muestra = getUrlParameter('Nro_precinto_muestra')
-        var Nro_muestra = getUrlParameter('Nro_muestra')
-
-        // Aplicar los valores a la primera copia
-
         document.getElementById("chofer").innerHTML = getUrlParameter('chofer')
+        document.getElementById("chofer-2").innerHTML = getUrlParameter('chofer')
         document.getElementById("dni_chofer").innerHTML = getUrlParameter('dni-chofer')
-        document.getElementById("chasis").innerHTML = chasis
-        document.getElementById("acoplado").innerHTML = acoplado
-        document.getElementById("observaciones_1").innerHTML = observaciones_1
-        document.getElementById("observaciones_2").innerHTML = observaciones_2
-        document.getElementById("producto").innerHTML = producto
-        document.getElementById("lote").innerHTML = lote
-        document.getElementById("tara").innerHTML = tara
-        document.getElementById("bruto").innerHTML = bruto
-        document.getElementById("neto").innerHTML = Neto
-        document.getElementById("precintos").innerHTML = Precintos
-        document.getElementById("op_balanza").innerHTML = op_balanza
-        document.getElementById("contramuestra").innerHTML = Nro_contramuestra
-        document.getElementById("precintomuestra").innerHTML = Nro_precinto_muestra
-        document.getElementById("Nro_muestra").innerHTML = Nro_muestra
+        document.getElementById("dni_chofer-2").innerHTML = getUrlParameter('dni-chofer')
+        document.getElementById("chasis").innerHTML = getUrlParameter('chasis')
+        document.getElementById("acoplado").innerHTML = getUrlParameter('acoplado')
+        document.getElementById("observaciones_1").innerHTML = getUrlParameter('observaciones_1')
+        document.getElementById("observaciones_2").innerHTML = getUrlParameter('observaciones_2')
+        document.getElementById("producto").innerHTML = getUrlParameter('producto')
+        document.getElementById("lote").innerHTML = getUrlParameter('lote')
+        document.getElementById("tara").innerHTML = getUrlParameter('tara')
+        document.getElementById("bruto").innerHTML = getUrlParameter('bruto')
+        document.getElementById("neto").innerHTML = getUrlParameter('Neto')
+        document.getElementById("precintos").innerHTML = getUrlParameter('Precintos')
+        document.getElementById("op_balanza").innerHTML = getUrlParameter('op-balanza')
+        document.getElementById("contramuestra").innerHTML = getUrlParameter('Nro_contramuestra')
+        document.getElementById("precintomuestra").innerHTML = getUrlParameter('Nro_precinto_muestra')
+        document.getElementById("Nro_muestra").innerHTML = getUrlParameter('Nro_muestra')
 
 
     </script>
