@@ -1664,7 +1664,7 @@
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-  }
+    } 
 
     // Función para formatear fechahora (si es necesario)
     function formatearFechaHora(fechaHoraString) {
@@ -1700,14 +1700,16 @@
     return numero.toLocaleString('es-AR'); // Formatea el número con separadores de miles para la región Argentina
     }
     
+    document.getElementById('tk_balanza-1').innerHTML = getUrlParameter('numero')
+    document.getElementById('remito-1').innerHTML = getUrlParameter('Remito')
+    document.getElementById("fecha-1").innerHTML = getUrlParameter('Fecha')
+    document.getElementById("destino-1").innerHTML = getUrlParameter('Destino')
+    document.getElementById("direccion-1").innerHTML =  getUrlParameter('Direccion')
+    document.getElementById("cuit_destino-1").innerHTML = getUrlParameter('CUIT-destino')
+    document.getElementById("terminal-1").innerHTML = getUrlParameter('Terminal') 
+    document.getElementById("transporte-1").innerHTML = getUrlParameter('transporte')
+    document.getElementById("trasponrte_cuit-1").innerHTML = getUrlParameter('transporte_cuit')
     
-    var Fecha = getUrlParameter('Fecha')
-    var Destino = getUrlParameter('Destino')
-    var Direccion = getUrlParameter('Direccion')
-    var CUIT_destino = getUrlParameter('CUIT-destino')
-    var Terminal = getUrlParameter('Terminal')
-    var transporte = getUrlParameter('transporte')
-    var transporte_cuit = getUrlParameter('transporte_cuit')
     var chofer = getUrlParameter('chofer')
     var dni_chofer = getUrlParameter('dni-chofer')
     var chasis = getUrlParameter('chasis')
@@ -1726,15 +1728,7 @@
     var Nro_muestra = getUrlParameter('Nro_muestra')
 
         // Aplicar los valores a la primera copia
-        document.getElementById('tk_balanza-1').innerHTML = getUrlParameter('numero')
-        document.getElementById('remito-1').innerHTML = getUrlParameter('Remito')
-        document.getElementById("fecha-1").innerHTML = Fecha
-        document.getElementById("destino-1").innerHTML = Destino
-        document.getElementById("direccion-1").innerHTML =  Direccion
-        document.getElementById("cuit_destino-1").innerHTML = CUIT_destino
-        document.getElementById("terminal-1").innerHTML = Terminal 
-        document.getElementById("transporte-1").innerHTML = transporte
-        document.getElementById("trasponrte_cuit-1").innerHTML = transporte_cuit
+        
         document.getElementById("chofer-1").innerHTML = chofer
         document.getElementById("dni_chofer-1").innerHTML = dni_chofer
         document.getElementById("chasis-1").innerHTML = chasis
