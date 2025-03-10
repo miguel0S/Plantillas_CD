@@ -1699,8 +1699,8 @@
     }
     return numero.toLocaleString('es-AR'); // Formatea el número con separadores de miles para la región Argentina
     }
-    var tk_balanza = getUrlParameter('numero')
-    var Remito = getUrlParameter('Remito')
+    
+    
     var Fecha = getUrlParameter('Fecha')
     var Destino = getUrlParameter('Destino')
     var Direccion = getUrlParameter('Direccion')
@@ -1726,8 +1726,8 @@
     var Nro_muestra = getUrlParameter('Nro_muestra')
 
         // Aplicar los valores a la primera copia
-        document.getElementById("tk_balanza-1").innerHTML = tk_balanza
-        document.getElementById("remito-1").innerHTML = Remito
+        document.getElementById("tk_balanza-1").innerHTML = getUrlParameter('numero')
+        document.getElementById("remito-1").innerHTML = getUrlParameter('Remito')
         document.getElementById("fecha-1").innerHTML = Fecha
         document.getElementById("destino-1").innerHTML = Destino
         document.getElementById("direccion-1").innerHTML =  Direccion
