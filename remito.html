@@ -1096,7 +1096,7 @@
             <td class="c11" colspan="1" rowspan="1">
                 <p class="c22">
                     <span class="c37">&lt;&lt;[</span>
-                    <span class="c37">CUIT transporte</span>
+                    <span class="c37" id="transporte_cuit">CUIT transporte</span>
                     <span class="c1">]&gt;&gt;</span>
                 </p>
             </td>
@@ -1557,7 +1557,7 @@
             </td>
             <td class="c18" colspan="1" rowspan="1">
                 <p class="c22 c55">
-                    <span class="c1" id="tk_balanza-1"></span>
+                    <span class="c1" id="tk_balanza"></span>
                 </p>
             </td>
             <td class="c30" colspan="1" rowspan="1">
@@ -1714,8 +1714,7 @@
         document.getElementById("transporte_cuit").innerHTML = getUrlParameter('transporte_cuit')
         document.getElementById('tk_balanza').innerHTML = getUrlParameter('numero')
 
-        var chofer = getUrlParameter('chofer')
-        var dni_chofer = getUrlParameter('dni-chofer')
+     
         var chasis = getUrlParameter('chasis')
         var acoplado = getUrlParameter('acoplado')
         var observaciones_1 = getUrlParameter('observaciones_1')
@@ -1733,22 +1732,22 @@
 
         // Aplicar los valores a la primera copia
 
-        document.getElementById("chofer-1").innerHTML = chofer
-        document.getElementById("dni_chofer-1").innerHTML = dni_chofer
-        document.getElementById("chasis-1").innerHTML = chasis
-        document.getElementById("acoplado-1").innerHTML = acoplado
-        document.getElementById("observaciones_1-1").innerHTML = observaciones_1
-        document.getElementById("observaciones_2-1").innerHTML = observaciones_2
-        document.getElementById("producto-1").innerHTML = producto
-        document.getElementById("lote-1").innerHTML = lote
-        document.getElementById("tara-1").innerHTML = tara
-        document.getElementById("bruto-1").innerHTML = bruto
-        document.getElementById("neto-1").innerHTML = Neto
-        document.getElementById("Precintos-1").innerHTML = Precintos
-        document.getElementById("op_balanza-1").innerHTML = op_balanza
-        document.getElementById("Nro_contramuestra-1").innerHTML = Nro_contramuestra
-        document.getElementById("Nro_precinto_muestra-1").innerHTML = Nro_precinto_muestra
-        document.getElementById("Nro_muestra-1").innerHTML = Nro_muestra
+        document.getElementById("chofer").innerHTML = getUrlParameter('chofer')
+        document.getElementById("dni_chofer").innerHTML = getUrlParameter('dni-chofer')
+        document.getElementById("chasis").innerHTML = chasis
+        document.getElementById("acoplado").innerHTML = acoplado
+        document.getElementById("observaciones_1").innerHTML = observaciones_1
+        document.getElementById("observaciones_2").innerHTML = observaciones_2
+        document.getElementById("producto").innerHTML = producto
+        document.getElementById("lote").innerHTML = lote
+        document.getElementById("tara").innerHTML = tara
+        document.getElementById("bruto").innerHTML = bruto
+        document.getElementById("neto").innerHTML = Neto
+        document.getElementById("precintos").innerHTML = Precintos
+        document.getElementById("op_balanza").innerHTML = op_balanza
+        document.getElementById("contramuestra").innerHTML = Nro_contramuestra
+        document.getElementById("precintomuestra").innerHTML = Nro_precinto_muestra
+        document.getElementById("Nro_muestra").innerHTML = Nro_muestra
 
 
     </script>
