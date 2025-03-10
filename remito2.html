@@ -34,6 +34,7 @@
         <span id="remito" class="field" style="top: 15mm; left: 175mm;"></span>
         <span id="fecha" class="field" style="top: 45mm; left: 155mm;"></span>
         <span id="destino" class="field" style="top: 67mm; left: 35mm;"></span>
+        <span id="CUIT_destino" class="field" style="top: 67mm; left: 125mm;"></span>
         <span id="direccion" class="field" style="top: 73mm; left: 35mm;"></span>
         <span class="field" style="top: 79mm; left: 35mm">TERMINAL:</span>
         <span id="terminal" class="field" style="top: 79mm; left: 50mm;"></span>
@@ -100,6 +101,8 @@
         document.getElementById('remito').innerHTML = getUrlParameter('Remito');
         document.getElementById('fecha').innerHTML = formatearFechaHora(getUrlParameter('Fecha'));
         document.getElementById('destino').innerHTML = getUrlParameter('Destino');
+        document.getElementById('CUIT_destino').innerHTML = getUrlParameter('CUIT_destino');
+        
         document.getElementById('direccion').innerHTML = getUrlParameter('Direccion');
         document.getElementById('dir_term').innerHTML = getUrlParameter('dir_term');
         document.getElementById('terminal').innerHTML = getUrlParameter('Terminal');
