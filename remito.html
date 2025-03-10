@@ -1557,7 +1557,7 @@
             </td>
             <td class="c18" colspan="1" rowspan="1">
                 <p class="c22 c55">
-                    <span class="c1">&lt;&lt;[Nro ticket balanza]&gt;&gt;</span>
+                    <span class="c1" id="tk_balanza-1"></span>
                 </p>
             </td>
             <td class="c30" colspan="1" rowspan="1">
@@ -1705,7 +1705,7 @@
 
         
         document.getElementById('remito-1').innerHTML = getUrlParameter('Remito')
-        document.getElementById("fecha-1").innerHTML = getUrlParameter('Fecha')
+        document.getElementById("fecha-1").innerHTML = formatearFechaHora(getUrlParameter('Fecha'))
         document.getElementById("destino-1").innerHTML = getUrlParameter('Destino')
         document.getElementById("direccion-1").innerHTML = getUrlParameter('Direccion')
         document.getElementById("cuit_destino-1").innerHTML = getUrlParameter('CUIT-destino')
