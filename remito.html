@@ -1703,7 +1703,7 @@
             return numero.toLocaleString('es-AR'); // Formatea el número con separadores de miles para la región Argentina
         }
 
-        document.getElementById('tk_balanza-1').innerHTML = getUrlParameter('numero')
+        
         document.getElementById('remito-1').innerHTML = getUrlParameter('Remito')
         document.getElementById("fecha-1").innerHTML = getUrlParameter('Fecha')
         document.getElementById("destino-1").innerHTML = getUrlParameter('Destino')
@@ -1712,6 +1712,7 @@
         document.getElementById("terminal-1").innerHTML = getUrlParameter('Terminal')
         document.getElementById("transporte-1").innerHTML = getUrlParameter('transporte')
         document.getElementById("trasponrte_cuit-1").innerHTML = getUrlParameter('transporte_cuit')
+        document.getElementById('tk_balanza-1').innerHTML = getUrlParameter('numero')
 
         var chofer = getUrlParameter('chofer')
         var dni_chofer = getUrlParameter('dni-chofer')
