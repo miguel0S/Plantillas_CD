@@ -767,7 +767,7 @@
             </td>
             <td class="c9" colspan="1" rowspan="1">
                 <p class="c22">
-                    <span class="c61"></span><span id="remito-1">ffff</span>
+                    <span class="c61"></span><span id="remito">ffff</span>
                 </p>
             </td>
             <td class="c6" colspan="1" rowspan="1">
@@ -885,7 +885,7 @@
                 </p>
                 <p class="c20">
                     <span class="c37">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>
-                    <span class="c29"><span id="fecha-1"></span></span>
+                    <span class="c29"><span id="fecha"></span></span>
                 </p>
             </td>
             <td class="c6" colspan="1" rowspan="1">
@@ -939,13 +939,13 @@
             </td>
             <td class="c16" colspan="4" rowspan="1">
                 <p class="c19">
-                    <span class="c1" id="Destino-1"></span>
+                    <span class="c1" id="destino"></span>
                 </p>
             </td>
             <td class="c8" colspan="1" rowspan="1">
                 <p class="c22">
                     <span class="c37">&lt;&lt;[</span>
-                    <span class="c57">CUIT destino</span>
+                    <span class="c57" id="cuit">CUIT destino</span>
                     <span class="c1">]&gt;&gt;</span>
                 </p>
             </td>
@@ -986,7 +986,7 @@
             <td class="c16" colspan="4" rowspan="1">
                 <p class="c19">
                     <span class="c37">TERMINAL: &lt;&lt;[</span>
-                    <span class="c37">Terminal]</span>
+                    <span class="c37" id="terminal">Terminal]</span>
                     <span class="c1">&gt;&gt;</span>
                 </p>
             </td>
@@ -1009,7 +1009,7 @@
             </td>
             <td class="c16" colspan="4" rowspan="1">
                 <p class="c19">
-                    <span class="c1">&lt;&lt;[Direccion terminal]&gt;&gt;</span>
+                    <span class="c1" id="direccion">&lt;&lt;[Direccion terminal]&gt;&gt;</span>
                 </p>
             </td>
             <td class="c8" colspan="1" rowspan="1">
@@ -1068,7 +1068,7 @@
             </td>
             <td class="c39" colspan="3" rowspan="1">
                 <p class="c22">
-                    <span class="c1">&lt;&lt;[transporte]&gt;&gt;</span>
+                    <span class="c1" id="transporte"></span>
                 </p>
             </td>
             <td class="c43" colspan="1" rowspan="1">
@@ -1704,15 +1704,15 @@
         }
 
         
-        document.getElementById('remito-1').innerHTML = getUrlParameter('Remito')
-        document.getElementById("fecha-1").innerHTML = formatearFechaHora(getUrlParameter('Fecha'))
-        document.getElementById("destino-1").innerHTML = getUrlParameter('Destino')
-        document.getElementById("direccion-1").innerHTML = getUrlParameter('Direccion')
-        document.getElementById("cuit_destino-1").innerHTML = getUrlParameter('CUIT-destino')
-        document.getElementById("terminal-1").innerHTML = getUrlParameter('Terminal')
-        document.getElementById("transporte-1").innerHTML = getUrlParameter('transporte')
-        document.getElementById("trasponrte_cuit-1").innerHTML = getUrlParameter('transporte_cuit')
-        document.getElementById('tk_balanza-1').innerHTML = getUrlParameter('numero')
+        document.getElementById('remito').innerHTML = getUrlParameter('Remito')
+        document.getElementById("fecha").innerHTML = formatearFechaHora(getUrlParameter('Fecha'))
+        document.getElementById("destino").innerHTML = getUrlParameter('Destino')
+        document.getElementById("direccion").innerHTML = getUrlParameter('Direccion')
+        document.getElementById("cuit").innerHTML = getUrlParameter('CUIT-destino')
+        document.getElementById("terminal").innerHTML = getUrlParameter('Terminal')
+        document.getElementById("transporte").innerHTML = getUrlParameter('transporte')
+        document.getElementById("transporte_cuit").innerHTML = getUrlParameter('transporte_cuit')
+        document.getElementById('tk_balanza').innerHTML = getUrlParameter('numero')
 
         var chofer = getUrlParameter('chofer')
         var dni_chofer = getUrlParameter('dni-chofer')
