@@ -27,6 +27,14 @@
             white-space: nowrap;
             border: 1px solid red; /* Solo para depuración */
         }
+        .fiel2 {
+            position: absolute;
+            font-size: 14px; /* Tamaño de fuente 11 */
+            white-space: pre-wrap;
+            border: 1px solid red;
+            width: 50mm; /* Tamaño A4 */
+            height: 60mm;/* Solo para depuración */
+        }
     </style>
 </head>
 <body class="c48 doc-content">
@@ -63,7 +71,7 @@
         <span id="op_balanza" class="field" style="top: 205mm; left: 160mm;"></span>
         <span class="field" style="top: 210mm; left: 160mm;">Contramuestra N&ordm;:</span>
         <span id="contramuestra" class="field" style="top: 215mm; left: 160mm;"></span>
-        <span class="field" style="top: 215mm; left: 160mm;">Precintos muestras:</span>
+        <span class="field" style="top: 220mm; left: 160mm;">Precintos muestras:</span>
         <span id="precintomuestra" class="field" style="top: 225mm; left: 160mm;"></span>
         <span class="field" style="top: 230mm; left: 160mm;">Muestra rotulada N&deg;: </span>
         <span id="Nro_muestra" class="field" style="top: 235mm; left: 160mm;"></span>
@@ -121,7 +129,7 @@
         document.getElementById('observaciones_1').innerHTML = getUrlParameter('observaciones_1');
         document.getElementById('observaciones_2').innerHTML = getUrlParameter('observaciones_2');
         document.getElementById('producto').innerHTML = getUrlParameter('producto');
-        document.getElementById('lote').innerHTML = getUrlParameter('lote');
+        document.getElementById('lote').innerHTML = getUrlParameter('lote'); 
         document.getElementById('tara').innerHTML = getUrlParameter('tara');
         document.getElementById('bruto').innerHTML = getUrlParameter('bruto');
         document.getElementById('neto').innerHTML = getUrlParameter('Neto');
