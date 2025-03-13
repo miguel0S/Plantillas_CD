@@ -59,7 +59,7 @@
         <span class="field" style="top:  184mm; left: 110mm;">NETO: </span>
         
         <span id="neto" class="field" style="top: 184mm; left: 125mm;"></span>
-        <span id="precintos"  style="top: 200mm; left: 20mm; position: absolute; font-size: 14px; white-space: pre-line; border: 1px solid blue; width: 50mm; box-sizing: border-box; overflow-wrap: break-word; line-height: 1.2;"></span>
+        <span id="precintos" style="top: 200mm; left: 20mm; position: absolute; font-size: 14px; white-space: pre-line; border: 1px solid blue; width: 50mm; box-sizing: border-box; overflow-wrap: break-word; line-height: 1.2;"></span>
         <span class="field" style="top: 200mm; left: 160mm;">Operador de balanza:</span>
         <span id="op_balanza" class="field" style="top: 205mm; left: 160mm;"></span>
         <span class="field" style="top: 210mm; left: 160mm;">Contramuestra N&ordm;:</span>
@@ -83,7 +83,19 @@
             var results = regex.exec(location.search);
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
-
+        // Función para formatear el campo Precintos
+        function formatearPrecintos(precintosString) {
+            const precintosArray = precintosString.split(',');
+            const precintosFormateados = precintosArray.map(precinto => {
+                const trimmedPrecinto = precinto.trim();
+                if (trimmedPrecinto === '*') {
+                    return ' * ';
+                } else {
+                    return trimmedPrecinto;
+                }
+            });
+            return precintosFormateados.join(', ');
+         }
         // Función para formatear fechahora (si es necesario)
         function formatearFechaHora(fechaHoraString) {
             if (!fechaHoraString) return '';
@@ -126,7 +138,12 @@
         document.getElementById('tara').innerHTML = getUrlParameter('tara');
         document.getElementById('bruto').innerHTML = getUrlParameter('bruto');
         document.getElementById('neto').innerHTML = getUrlParameter('Neto');
-        document.getElementById('precintos').innerHTML = getUrlParameter('Precintos');
+        
+//        document.getElementById('precintos').innerHTML = getUrlParameter('Precintos');
+        const precintosOriginal = getUrlParameter('Precintos');
+        const precintosFormateados = formatearPrecintos(precintosOriginal);
+        document.getElementById('precintos').innerHTML = precintosFormateados
+        
         document.getElementById('op_balanza').innerHTML = getUrlParameter('op_balanza');
         document.getElementById('contramuestra').innerHTML = getUrlParameter('Nro_contramuestra');
         document.getElementById('precintomuestra').innerHTML = getUrlParameter('Nro_precinto_muestra');
