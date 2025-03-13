@@ -111,7 +111,18 @@
                 console.log("Error al formatear fechahora:", e);
                 return fechaHoraString;
             }
+        
+        }    // Función para agregar separador de miles
+        function formatearNumeroConMiles(numero) {
+            const numeroFloat = parseFloat(numero);
+            if (!isNaN(numeroFloat)) {
+                return numeroFloat.toLocaleString('es-AR'); // Utiliza el formato argentino
+            }
+            return numero; // Devuelve el valor original si no es un número válido
         }
+
+        }
+        
 
         // Asignar valores a los campos
         document.getElementById('remito').innerHTML = getUrlParameter('Remito');
@@ -127,17 +138,34 @@
         document.getElementById('tk_balanza').innerHTML = getUrlParameter('numero');
         document.getElementById('chofer').innerHTML = getUrlParameter('chofer');
         document.getElementById('chofer-2').innerHTML = getUrlParameter('chofer');
-        document.getElementById('dni-chofer').innerHTML = getUrlParameter('dni_chofer');
-        document.getElementById('dni-chofer-2').innerHTML = getUrlParameter('dni_chofer');
+
+
+       const dniChofer = getUrlParameter('dni_chofer');
+        document.getElementById('dni-chofer').innerHTML = formatearNumeroConMiles(dniChofer);
+        document.getElementById('dni-chofer-2').innerHTML = formatearNumeroConMiles(dniChofer);
+ 
+       // document.getElementById('dni-chofer').innerHTML = getUrlParameter('dni_chofer');
+       // document.getElementById('dni-chofer-2').innerHTML = getUrlParameter('dni_chofer');
+        
+        
+        
         document.getElementById('chasis').innerHTML = getUrlParameter('chasis');
         document.getElementById('acoplado').innerHTML = getUrlParameter('acoplado');
         document.getElementById('observaciones_1').innerHTML = getUrlParameter('observaciones_1');
         document.getElementById('observaciones_2').innerHTML = getUrlParameter('observaciones_2');
         document.getElementById('producto').innerHTML = getUrlParameter('producto');
         document.getElementById('lote').innerHTML = getUrlParameter('lote'); 
-        document.getElementById('tara').innerHTML = getUrlParameter('tara');
-        document.getElementById('bruto').innerHTML = getUrlParameter('bruto');
-        document.getElementById('neto').innerHTML = getUrlParameter('Neto');
+        
+       // document.getElementById('tara').innerHTML = getUrlParameter('tara');
+       // document.getElementById('bruto').innerHTML = getUrlParameter('bruto');
+       // document.getElementById('neto').innerHTML = getUrlParameter('Neto');
+                // Formatear e insertar Neto con separador de miles
+        const neto = getUrlParameter('Neto');
+        const bruto = getUrlParameter('bruto');
+        const tara = getUrlParameter('tara');
+        document.getElementById('neto').innerHTML = formatearNumeroConMiles(neto);
+        document.getElementById('bruto').innerHTML = formatearNumeroConMiles(bruto);
+        document.getElementById('tara').innerHTML = formatearNumeroConMiles(tara);
         
 //        document.getElementById('precintos').innerHTML = getUrlParameter('Precintos');
         const precintosOriginal = getUrlParameter('Precintos');
