@@ -38,7 +38,7 @@
         <span id="CUIT_destino" class="field" style="top: 65mm; left: 135mm;"></span>
         <span id="direccion" class="field" style="top: 71mm; left: 35mm;"></span>
         <span class="field" style="top: 77mm; left: 35mm">TERMINAL:</span>
-        <span TERMINAL: id="terminal" class="field" style="top: 77mm; left: 55mm;"></span>
+        <span id="terminal" class="field" style="top: 77mm; left: 55mm;"></span>
         <span id="dir_term" class="field" style="top: 83mm; left: 35mm;"></span>
         
         <span id="transporte" class="field" style="top: 105mm; left: 45mm;"></span>
@@ -48,7 +48,7 @@
         <span id="chasis" class="field" style="top: 125mm; left: 125mm;"></span>
         <span id="acoplado" class="field" style="top: 131mm; left: 45mm;"></span>
         
-        <span id="observaciones_1" class="field" style="top: 145mm; left: 45mm;"></span>
+        <span id="observaciones" class="field" style="top: 145mm; left: 45mm;"></span>
         <span id="observaciones_2" class="field" style="top: 155mm; left: 45mm;"></span>
         
         <span id="producto" class="field" style="top: 170mm; left: 45mm;"></span>
@@ -70,9 +70,9 @@
         <span id="Nro_muestra" class="field" style="top: 235mm; left: 160mm;"></span>
         <span class="field" style="top: 245mm; left: 180mm;">Lote:</span>
         <span id="lote" class="field" style="top: 250mm; left: 170mm;"></span>
-        <span id="tk_balanza" class="field" style="top: 255mm; left: 50mm;"></span>
+        <span id="tk_balanza" class="field" style="top: 250mm; left: 50mm;"></span>
         <span id="dni-chofer-2" class="field" style="top: 275mm; left: 95mm;"></span>
-        <span id="chofer-2" class="field" style="top: 275mm; left: 150mm;"></span>
+        <span id="chofer-2" class="field" style="top: 275mm; center: 175mm;"></span>
     </div>
 
     <script>
@@ -151,7 +151,7 @@
         
         document.getElementById('chasis').innerHTML = getUrlParameter('chasis');
         document.getElementById('acoplado').innerHTML = getUrlParameter('acoplado');
-        document.getElementById('observaciones_1').innerHTML = getUrlParameter('observaciones_1');
+        document.getElementById('observaciones').innerHTML = getUrlParameter('observaciones_1');
         document.getElementById('observaciones_2').innerHTML = getUrlParameter('observaciones_2');
         document.getElementById('producto').innerHTML = getUrlParameter('producto');
         document.getElementById('lote').innerHTML = getUrlParameter('lote'); 
