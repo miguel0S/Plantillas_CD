@@ -185,13 +185,23 @@
         .dj-firmas {
             display: flex;
             justify-content: space-between;
+            align-items: flex-end;
             margin-top: 80px;
         }
 
         .dj-firma {
             width: 45%;
             text-align: center;
-            border-top: 1px solid #000;
+        }
+
+        /* Lo que va escrito sobre el renglón (la firma a mano o el nombre del chofer) */
+        .dj-firma-valor {
+            min-height: 1.7em;
+            border-bottom: 1px solid #000;
+            padding-bottom: 3px;
+        }
+
+        .dj-firma-etiqueta {
             padding-top: 5px;
         }
 
@@ -431,8 +441,14 @@
         </p>
 
         <div class="dj-firmas">
-            <div class="dj-firma">Firma</div>
-            <div class="dj-firma">Aclaración: <span id="dj-aclaracion"></span></div>
+            <div class="dj-firma">
+                <div class="dj-firma-valor"></div>
+                <div class="dj-firma-etiqueta">Firma</div>
+            </div>
+            <div class="dj-firma">
+                <div class="dj-firma-valor" id="dj-aclaracion"></div>
+                <div class="dj-firma-etiqueta">Aclaración</div>
+            </div>
         </div>
     </div>
 
